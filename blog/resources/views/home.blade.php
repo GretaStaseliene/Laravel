@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
+    {{-- <div class="container">
         <header class="d-flex justify-content-center py-3">
           <ul class="nav nav-pills">
             @foreach ($pages as $page)
@@ -16,9 +16,8 @@
             @endforeach
           </ul>
         </header>
-      </div>
-
-      {{-- @include('views.navigation'); --}}
+      </div> --}}
+      @include('navigation');
 
     <div class="container col-xxl-8 px-4 py-5">
       <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
