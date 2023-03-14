@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// $pages = array('Home', 'About us', 'Services', 'Prices', 'Contacts');
 
 Route::get('/', function () {
     return view('home', [
@@ -24,16 +25,9 @@ Route::get('/', function () {
         ]
     ]);
 });
-
 Route::get('/Home', function () {
     return view('home', [
-        'pages' => [
-            'Home',
-            'About us',
-            'Services',
-            'Prices',
-            'Contacts'
-        ]
+        'pages' => ['Home', 'About us', 'Services', 'Prices', 'Contacts']
     ]);
 });
 
@@ -42,13 +36,24 @@ Route::get('/About us', function () {
 });
 
 Route::get('/Services', function () {
-    return view('services');
+    return view('services', [
+        'services' => ['Manicure', 'Pedicure', 'Makeup', 'Massage']
+    ]);
 });
 
 Route::get('/Prices', function () {
-    return view('prices');
+    return view('prices', [
+        'prices' => ['manicure' => '25eur', 'Pedicure' => '35eur', 'Makeup' => '38eur', 'Massage' => '45eur']
+    ]);
 });
 
 Route::get('/Contacts', function () {
-    return view('contacts');
+    return view('contacts', [
+        'contacts' => [
+            'name' => 'Onute',
+            'surname' => 'Pakalnute',
+            'email' => 'onutepakalnute@gmail.com',
+            'phone' => '+37069854123'
+        ]
+    ]);
 });
