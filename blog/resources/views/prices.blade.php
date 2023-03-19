@@ -2,15 +2,17 @@
     'pages' => [
         'Home',
         'About us',
-        'Services',
+        'New Post',
+        'Posts',
         'Prices',
         'Contacts'
     ]
-]);
-@extends('layouts.main');
+])
 
+@extends('layouts.main')
 
-<div class="container">
+@section('content')
+
 <a href="/" class="btn btn-success">Home</a>
 
     <h2>prices</h2>
@@ -27,4 +29,5 @@
             </a>
         </div>
     @endforeach
-</div>
+
+@stop

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Blog;
-
+use App\Http\Controllers\Posts;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,8 +21,15 @@ Route::get('/Home', [Blog::class, 'index']);
 
 Route::get('/About us', [Blog::class, 'aboutUs']);
 
-Route::get('/Services', [Blog::class, 'services']);
-
 Route::get('/Prices', [Blog::class, 'prices']);
 
 Route::get('/Contacts', [Blog::class, 'contacts']);
+
+// Visu irasu atvaizdavimas
+Route::get('/Posts', [Posts::class, 'index']);
+
+// Naujo iraso formos atvaizdavimas
+Route::get('/New Post', [Posts::class, 'newPost']);
+
+// Iraso priemimas ir pridejimas i db
+Route::post('/New Post', [Posts::class, 'savePost']);

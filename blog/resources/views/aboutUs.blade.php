@@ -2,14 +2,17 @@
   'pages' => [
       'Home',
       'About us',
-      'Services',
+      'New Post',
+      'Posts',
       'Prices',
       'Contacts'
   ]
-]);
-@extends('layouts.main');
+])
 
-<div class="container">
+@extends('layouts.main')
+
+@section('content')
+
 <a href="/" class="btn btn-success">Home</a>
     <h2>about us</h2>
     <div class="px-4 py-5 my-5 text-center">
@@ -23,4 +26,5 @@
           </div>
         </div>
       </div>
-</div>
+
+@stop
