@@ -1,6 +1,16 @@
-{{-- @include('navigation'); --}}
-<a href="/" class="btn btn-success">Home</a>
+@include('navigation', [
+  'pages' => [
+      'Home',
+      'About us',
+      'Services',
+      'Prices',
+      'Contacts'
+  ]
+]);
+@extends('layouts.main');
+
 <div class="container">
+<a href="/" class="btn btn-success">Home</a>
     <h2>about us</h2>
     <div class="px-4 py-5 my-5 text-center">
         <img class="d-block mx-auto mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">

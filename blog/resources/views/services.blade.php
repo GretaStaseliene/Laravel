@@ -1,7 +1,17 @@
-{{-- @include('navigation'); --}}
-<a href="/" class="btn btn-success">Home</a>
+@include('navigation', [
+    'pages' => [
+        'Home',
+        'About us',
+        'Services',
+        'Prices',
+        'Contacts'
+    ]
+]);
+@extends('layouts.main');
 
 <div class="container">
+<a href="/" class="btn btn-success">Home</a>
+
     <h2>services</h2>
 
     @foreach($services as $service)

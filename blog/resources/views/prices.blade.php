@@ -1,7 +1,18 @@
-{{-- @include('navigation'); --}}
-<a href="/" class="btn btn-success">Home</a>
+@include('navigation', [
+    'pages' => [
+        'Home',
+        'About us',
+        'Services',
+        'Prices',
+        'Contacts'
+    ]
+]);
+@extends('layouts.main');
+
 
 <div class="container">
+<a href="/" class="btn btn-success">Home</a>
+
     <h2>prices</h2>
     @foreach($prices as $service => $price)
         <div class="list-group w-auto">

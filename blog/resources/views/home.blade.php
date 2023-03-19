@@ -1,23 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel Routing</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-</head>
-<body>
-    {{-- <div class="container">
-        <header class="d-flex justify-content-center py-3">
-          <ul class="nav nav-pills">
-            @foreach ($pages as $page)
-              <li class="nav-item"><a href="/{{$page}}" class="nav-link" aria-current="page">{{$page}}</a></li>
-            @endforeach
-          </ul>
-        </header>
-      </div> --}}
-      @include('navigation');
+@include('navigation');
+
+@extends('layouts.main')
 
     <div class="container col-xxl-8 px-4 py-5">
       <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -30,5 +13,3 @@
         </div>
       </div>
     </div>
-</body>
-</html>

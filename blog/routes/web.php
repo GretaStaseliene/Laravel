@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Blog;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,46 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 // $pages = array('Home', 'About us', 'Services', 'Prices', 'Contacts');
 
-Route::get('/', function () {
-    return view('home', [
-        'pages' => [
-            'Home',
-            'About us',
-            'Services',
-            'Prices',
-            'Contacts'
-        ]
-    ]);
-});
-Route::get('/Home', function () {
-    return view('home', [
-        'pages' => ['Home', 'About us', 'Services', 'Prices', 'Contacts']
-    ]);
-});
+Route::get('/', [Blog::class, 'index']);
 
-Route::get('/About us', function () {
-    return view('aboutUs');
-});
+Route::get('/Home', [Blog::class, 'index']);
 
-Route::get('/Services', function () {
-    return view('services', [
-        'services' => ['Manicure', 'Pedicure', 'Makeup', 'Massage']
-    ]);
-});
+Route::get('/About us', [Blog::class, 'aboutUs']);
 
-Route::get('/Prices', function () {
-    return view('prices', [
-        'prices' => ['manicure' => '25eur', 'Pedicure' => '35eur', 'Makeup' => '38eur', 'Massage' => '45eur']
-    ]);
-});
+Route::get('/Services', [Blog::class, 'services']);
 
-Route::get('/Contacts', function () {
-    return view('contacts', [
-        'contacts' => [
-            'name' => 'Onute',
-            'surname' => 'Pakalnute',
-            'email' => 'onutepakalnute@gmail.com',
-            'phone' => '+37069854123'
-        ]
-    ]);
-});
+Route::get('/Prices', [Blog::class, 'prices']);
+
+Route::get('/Contacts', [Blog::class, 'contacts']);
