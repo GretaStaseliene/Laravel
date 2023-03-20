@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Blog;
-use App\Http\Controllers\Posts;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,23 +13,19 @@ use App\Http\Controllers\Posts;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// $pages = array('Home', 'About us', 'Services', 'Prices', 'Contacts');
 
-Route::get('/', [Blog::class, 'index']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/Home', [Blog::class, 'index']);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/About us', [Blog::class, 'aboutUs']);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-Route::get('/Prices', [Blog::class, 'prices']);
-
-Route::get('/Contacts', [Blog::class, 'contacts']);
-
-// Visu irasu atvaizdavimas
-Route::get('/Posts', [Posts::class, 'index']);
-
-// Naujo iraso formos atvaizdavimas
-Route::get('/New Post', [Posts::class, 'newPost']);
-
-// Iraso priemimas ir pridejimas i db
-Route::post('/New Post', [Posts::class, 'savePost']);
+require __DIR__.'/auth.php';
