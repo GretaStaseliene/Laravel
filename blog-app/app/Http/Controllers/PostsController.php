@@ -25,9 +25,10 @@ class PostsController extends Controller
         $newPost->content = $request->content;
         $newPost->photo = $request->photo;
         $newPost->comments_count = 0;
+        $newPost->user_id = auth()->user()->id;
         $newPost->save();
 
-        return redirect('/');
+        return redirect('/posts');
     }
 
     public function singlePost($id) {
